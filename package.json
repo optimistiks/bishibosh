@@ -7,5 +7,31 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "optimistiks",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.0.14",
+    "babel-loader": "^6.0.0",
+    "babel-runtime": "^6.0.14",
+    "css-loader": "^0.21.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2",
+    "webpack-bundle-size-analyzer": "^1.1.0",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "axios": "^0.7.0",
+    "material-ui": "^0.13.1",
+    "parse": "^1.6.8",
+    "react": "^0.14.1",
+    "react-addons-create-fragment": "^0.14.1",
+    "react-addons-pure-render-mixin": "^0.14.1",
+    "react-addons-transition-group": "^0.14.1",
+    "react-addons-update": "^0.14.1",
+    "react-dom": "^0.14.1",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.0-rc3",
+    "react-tap-event-plugin": "^0.2.1",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+  }
 }
