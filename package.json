@@ -7,7 +7,8 @@
     "build": "NODE_ENV='production' webpack --progress --profile --colors --config webpack.config.production.js",
     "analyze": "webpack --json | analyze-bundle-size",
     "watch": "webpack-dev-server --content-base www/ --hot --inline --progress --colors",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js --ext .jsx src"
   },
   "author": "optimistiks",
   "license": "ISC",
