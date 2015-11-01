@@ -16,7 +16,7 @@ class RegistrationPage extends React.Component {
             <form onSubmit={this.handleSubmit.bind(this)} ref={(form) => this.form = form}>
                 <input type="text" name="username" placeholder="username"/>
                 <input type="password" name="password" placeholder="password"/>
-                <button type="submit">Register</button>
+                <button type="submit">Sign up</button>
             </form>
         </div>);
     }
