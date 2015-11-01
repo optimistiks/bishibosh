@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "rules": {
     "indent": [
       2,
@@ -27,6 +28,8 @@
       2,
       "never"
     ],
+    "no-console": 0,
+    "dot-notation": 2,
     "eol-last": 2,
     "constructor-super": 2,
     "no-class-assign": 2,
@@ -38,6 +41,7 @@
     "object-shorthand": 2,
     "prefer-arrow-callback": 2,
     "prefer-template": 2,
+    "arrow-parens": 2,
     "react/jsx-uses-react": 1,
     "react/forbid-prop-types": 1,
     "react/jsx-boolean-value": 1,
@@ -60,7 +64,7 @@
     "react/no-multi-comp": 1,
     "react/no-set-state": 1,
     "react/no-unknown-property": 1,
-    "react/prefer-es6-class": 1,
+    "react/prefer-es6-class": 0,
     "react/react-in-jsx-scope": 1,
     "react/require-extension": 1,
     "react/self-closing-comp": 1,

@@ -3,23 +3,24 @@ import {Router, Route} from 'react-router';
 import {Provider} from 'react-redux';
 
 import store from '../../modules/store/index';
-import requireAuth from '../../modules/require-auth/index';
 
 import App from '../App/App.jsx';
+import Public from '../Public/Public.jsx';
+import Protected from '../Protected/Protected.jsx';
 import RegistrationPage from '../../../public/components/RegistrationPage/RegistrationPage.jsx';
 import LoginPage from '../../../public/components/LoginPage/LoginPage.jsx';
 import BuildsPage from '../../../builds/components/BuildsPage/BuildsPage.jsx';
-
-
 
 const Routes = (
 
     <Provider store={store}>
         <Router>
             <Route path="/" component={App}>
-                <Route path="registration" component={RegistrationPage}/>
-                <Route path="login" component={LoginPage}/>
-                <Route onEnter={requireAuth}>
+                <Route component={Public}>
+                    <Route path="registration" component={RegistrationPage}/>
+                    <Route path="login" component={LoginPage}/>
+                </Route>
+                <Route component={Protected}>
                     <Route path="builds" component={BuildsPage}/>
                 </Route>
             </Route>

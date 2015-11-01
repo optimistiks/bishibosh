@@ -1,10 +1,11 @@
 import getCurrentUser from '../get-current-user/index';
 
-export const currentUser = function (state = getCurrentUser(), action) {
+
+export const currentUser = function(state = getCurrentUser(), action) {
 
     switch (action.type) {
 
-        case 'CURRENT_USER_CHANGE':
+        case 'SIGN_UP':
             return action.payload;
 
         default:
@@ -13,3 +14,4 @@ export const currentUser = function (state = getCurrentUser(), action) {
     }
 
 };
+

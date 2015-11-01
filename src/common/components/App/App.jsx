@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+
 
 class App extends React.Component {
 
@@ -12,4 +12,4 @@ class App extends React.Component {
 
 }
 
-export default connect(state => {return {currentUser: state.currentUser};})(App);
+export default App;
