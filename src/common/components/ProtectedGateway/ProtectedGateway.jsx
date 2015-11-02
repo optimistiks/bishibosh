@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {History} from 'react-router';
+import {signOut} from '../../modules/action-creators/index';
 
 
 const Protected = React.createClass({
@@ -20,11 +21,20 @@ const Protected = React.createClass({
     },
 
     redirect() {
-        this.history.replaceState(null, '/login');
+        this.history.replaceState(null, '/signin');
+    },
+
+    handleSignOut() {
+        this.props.dispatch(signOut());
     },
 
     render() {
-        return this.props.children;
+        return (
+            <div>
+                <button type="button" onClick={this.handleSignOut}>Sign out</button>
+                {this.props.children}
+            </div>
+        );
     }
 
 });

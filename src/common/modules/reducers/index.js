@@ -5,7 +5,9 @@ export const currentUser = function(state = getCurrentUser(), action) {
 
     switch (action.type) {
 
-        case 'SIGN_UP':
+        case 'REGISTER':
+        case 'SIGN_IN':
+        case 'SIGN_OUT':
             return action.payload;
 
         default:
@@ -14,4 +16,3 @@ export const currentUser = function(state = getCurrentUser(), action) {
     }
 
 };
-
