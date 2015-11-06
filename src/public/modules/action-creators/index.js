@@ -1,6 +1,30 @@
 import Parse from 'parse';
-import {register as actionRegister, signIn as actionSignIn} from '../action-repository/index';
+import {
+    register as actionRegister,
+    signIn as actionSignIn,
+    loadBuilds as actionLoadBuilds
+} from '../action-repository/index';
 
+export const loadBuilds = () => {
+
+    return async function (dispatch) {
+
+        const query = new Parse.Query('Build');
+
+        try {
+
+            const response = await query.find();
+            dispatch(actionLoadBuilds(response));
+
+        } catch (exception) {
+
+            dispatch(actionLoadBuilds([], true));
+
+        }
+
+    };
+
+};
 
 export const register = (username, password) => {
 

@@ -1,8 +1,9 @@
 export default (type) => {
-    return (payload) => {
+    return (payload, isError) => {
         return {
             type,
-            payload
+            payload,
+            isError
         };
     };
 };

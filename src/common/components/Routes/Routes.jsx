@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, Redirect} from 'react-router';
+import {Router, Route, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 
 import store from '../../modules/store/index';
@@ -10,13 +10,14 @@ import ProtectedGateway from '../ProtectedGateway/ProtectedGateway.jsx';
 import RegistrationPage from '../../../public/components/RegistrationPage/RegistrationPage.jsx';
 import LoginPage from '../../../public/components/LoginPage/LoginPage.jsx';
 import BuildsPage from '../../../builds/components/BuildsPage/BuildsPage.jsx';
+import PromoPage from '../../../public/components/PromoPage/PromoPage.jsx';
 
 const Routes = (
 
     <Provider store={store}>
         <Router>
-            <Redirect from="/" to="/builds"/>
             <Route path="/" component={App}>
+                <IndexRoute component={PromoPage}/>
                 <Route component={PublicGateway}>
                     <Route path="register" component={RegistrationPage}/>
                     <Route path="signin" component={LoginPage}/>

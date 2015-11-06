@@ -3,6 +3,7 @@ require('babel-polyfill');
 import ReactDOM from 'react-dom';
 import Routes from './src/common/components/Routes/Routes.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import './src/common/models/index';
 
 //Needed for onTouchTap
 //Can go away when react 1.0 release
