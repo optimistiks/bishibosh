@@ -9,7 +9,7 @@ import PublicGateway from '../PublicGateway/PublicGateway.jsx';
 import ProtectedGateway from '../ProtectedGateway/ProtectedGateway.jsx';
 import RegistrationPage from '../../../public/components/RegistrationPage/RegistrationPage.jsx';
 import LoginPage from '../../../public/components/LoginPage/LoginPage.jsx';
-import BuildsPage from '../../../builds/components/BuildsPage/BuildsPage.jsx';
+import DashboardPage from '../../../dashboard/components/DashboardPage/DashboardPage.jsx';
 import PromoPage from '../../../public/components/PromoPage/PromoPage.jsx';
 
 const Routes = (
@@ -23,7 +23,7 @@ const Routes = (
                     <Route path="signin" component={LoginPage}/>
                 </Route>
                 <Route component={ProtectedGateway}>
-                    <Route path="builds" component={BuildsPage}/>
+                    <Route path="dashboard" component={DashboardPage}/>
                 </Route>
             </Route>
         </Router>

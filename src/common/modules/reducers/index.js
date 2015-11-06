@@ -1,7 +1,19 @@
 import getCurrentUser from '../get-current-user/index';
 
+export const actionError = function (state = '', action) {
 
-export const currentUser = function(state = getCurrentUser(), action) {
+    console.log('ActionErrorReducer', action);
+
+    if (action.isError) {
+        return action.type;
+    }
+
+    return state;
+
+};
+
+
+export const currentUser = function (state = getCurrentUser(), action) {
 
     switch (action.type) {
 

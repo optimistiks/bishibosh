@@ -42,7 +42,9 @@ export const register = (username, password) => {
             dispatch(actionRegister(Parse.User.current()));
 
         } catch (exception) {
-            console.error('REGISTER', exception);
+
+            dispatch(actionRegister(null, true));
+
         }
 
     };
@@ -58,7 +60,9 @@ export const signIn = (username, password) => {
             dispatch(actionSignIn(Parse.User.current()));
 
         } catch (exception) {
-            console.error('SIGN_IN', exception);
+
+            dispatch(actionSignIn(null, true));
+
         }
 
     };

@@ -20,7 +20,7 @@ const Public = React.createClass({
     },
 
     redirect() {
-        this.history.replaceState(null, '/builds');
+        this.history.replaceState(null, '/dashboard');
     },
 
     render() {
