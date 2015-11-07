@@ -48,12 +48,6 @@
     "react/jsx-closing-bracket-location": 1,
     "react/jsx-curly-spacing": 1,
     "react/jsx-indent-props": 1,
-    "react/jsx-max-props-per-line": [
-      1,
-      {
-        "maximum": 3
-      }
-    ],
     "react/jsx-no-duplicate-props": 1,
     "react/jsx-no-undef": 1,
     "react/jsx-uses-vars": 1,

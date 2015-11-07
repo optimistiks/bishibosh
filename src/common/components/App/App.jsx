@@ -7,7 +7,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {this.props.actionError ? <p>Error in action {this.props.actionError}</p> : null}
+                {this.props.actionError.isError ? <p>Error in action {this.props.actionError.type}</p> : null}
                 {this.props.children}
             </div>
         );
@@ -16,7 +16,11 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-    actionError: React.PropTypes.string
+    actionError: React.PropTypes.shape({
+        type: React.PropTypes.string,
+        payload: React.PropTypes.any,
+        isError: React.PropTypes.oneOf([true])
+    })
 };
 
 export default connect((state) => ({actionError: state.actionError}))(App);

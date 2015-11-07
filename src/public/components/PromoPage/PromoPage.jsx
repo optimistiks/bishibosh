@@ -7,10 +7,22 @@ import Build from '../../../common/models/Build/Build';
 
 class PromoPage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     componentWillMount() {
-
         this.props.dispatch(loadBuilds());
+    }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.history.pushState(null, '/compare', {
+            battleTag: this.form.elements.battleTag.value,
+            heroName: this.form.elements.heroName.value,
+            buildId: this.form.elements.buildId.value
+        });
     }
 
     render() {
@@ -31,10 +43,10 @@ class PromoPage extends React.Component {
                     against it too!
                 </p>
 
-                <form>
-                    <input type="text" placeholder="battletag"/>
-                    <input type="text" placeholder="hero name"/>
-                    <select defaultValue="">
+                <form onSubmit={this.handleSubmit} ref={(form) => this.form = form}>
+                    <input type="text" name="battleTag" placeholder="battletag" required/>
+                    <input type="text" name="heroName" placeholder="hero name" required/>
+                    <select defaultValue="" name="buildId" required>
                         <option value="">Select a build...</option>
                         {options}
                     </select>

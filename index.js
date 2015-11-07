@@ -1,5 +1,4 @@
-require('babel-polyfill');
-
+import 'babel-polyfill';
 import ReactDOM from 'react-dom';
 import Routes from './src/common/components/Routes/Routes.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';

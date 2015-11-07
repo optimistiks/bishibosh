@@ -1,4 +1,5 @@
 import Parse from '../../../common/modules/parse-client/index';
+import parseFileLoader from '../../../common/modules/parse-file-loader/index';
 
 class Build extends Parse.Object {
 
@@ -16,6 +17,13 @@ class Build extends Parse.Object {
 
     getPatch() {
         return this.get('patch');
+    }
+
+    async getBuildData() {
+
+        const parseFile = this.get('buildData');
+        return await parseFileLoader(parseFile);
+
     }
 
 }

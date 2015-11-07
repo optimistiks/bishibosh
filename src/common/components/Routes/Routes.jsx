@@ -11,6 +11,8 @@ import RegistrationPage from '../../../public/components/RegistrationPage/Regist
 import LoginPage from '../../../public/components/LoginPage/LoginPage.jsx';
 import DashboardPage from '../../../dashboard/components/DashboardPage/DashboardPage.jsx';
 import PromoPage from '../../../public/components/PromoPage/PromoPage.jsx';
+import ComparePage from '../../../compare/components/ComparePage/ComparePage.jsx';
+
 
 const Routes = (
 
@@ -18,6 +20,7 @@ const Routes = (
         <Router>
             <Route path="/" component={App}>
                 <IndexRoute component={PromoPage}/>
+                <Route path="compare" component={ComparePage}/>
                 <Route component={PublicGateway}>
                     <Route path="register" component={RegistrationPage}/>
                     <Route path="signin" component={LoginPage}/>

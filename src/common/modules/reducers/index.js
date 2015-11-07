@@ -1,11 +1,9 @@
 import getCurrentUser from '../get-current-user/index';
 
-export const actionError = function (state = '', action) {
-
-    console.log('ActionErrorReducer', action);
+export const actionError = function (state = {}, action) {
 
     if (action.isError) {
-        return action.type;
+        return action;
     }
 
     return state;
