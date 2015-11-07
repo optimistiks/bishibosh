@@ -35,6 +35,17 @@ const api = {
         const url = `${URL}/d3/profile/${battleTag}/hero/${heroId}`;
         return await this.sendRequest(url);
 
+    },
+
+    /**
+     * @param {String} tooltipParams a parameter from hero profile response (heroProfile.items.head.tooltipData)
+     * @returns {Promise}
+     */
+    async getItemData(tooltipParams) {
+
+        const url = `${URL}/d3/data/${tooltipParams}`;
+        return await this.sendRequest(url);
+
     }
 };
 

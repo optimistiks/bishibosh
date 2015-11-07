@@ -5,9 +5,15 @@ import {connect} from 'react-redux';
 class App extends React.Component {
 
     render() {
+
+        if (this.props.actionError.type) {
+            console.error(this.props.actionError);
+        }
+
         return (
             <div>
-                {this.props.actionError.isError ? <p>Error in action {this.props.actionError.type}</p> : null}
+                {this.props.actionError.type ? <p>Error in
+                    action {this.props.actionError.type} {JSON.stringify(this.props.actionError)}</p> : null}
                 {this.props.children}
             </div>
         );

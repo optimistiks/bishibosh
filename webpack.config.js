@@ -22,7 +22,8 @@ module.exports = {
                 loader: 'babel',
                 query: {presets: ['react', 'stage-0', 'es2015'], cacheDirectory: true}
             },
-            {test: /\.css$/, loader: 'style!css'}
+            {test: /\.css$/, loader: 'style!css'},
+            {test: /\.json/, loader: 'json'}
         ]
     },
     eslint: {

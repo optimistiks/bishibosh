@@ -1,0 +1,36 @@
+{
+  "Sockets": "Sockets",
+
+  "Resistance_All": "All resistance",
+  "Resistance#Fire": "Fire resistance",
+  "Resistance#Poison": "Poison resistance",
+  "Resistance#Cold": "Cold resistance",
+
+  "Armor_Bonus_Item": "Armor",
+  "Hitpoints_Max_Percent_Bonus_Item": "Life %",
+
+  "Damage_Percent_Reduction_From_Elites": "Reduced damage from elites",
+
+  "Damage_Weapon_Percent_All": "Weapon damage %",
+  "Damage_Weapon_Min#Holy": "+ Holy weapon damage",
+  "Damage_Min#Physical": "Damage range",
+
+  "On_Hit_Chill_Proc_Chance": "Chance to chill on hit",
+  "Attacks_Per_Second_Percent": "Attack speed",
+
+  "Crit_Damage_Percent": "Critical hit damage",
+  "Crit_Percent_Bonus_Capped": "Critical hit chance",
+
+  "Resource_Max_Bonus#Arcanum": "+ Maximum arcane power (wizard only)",
+  "Resource_On_Crit#Arcanum": "Arcane power on crit (wizard only)",
+
+  "Vitality_Item": "Vitality",
+  "Intelligence_Item": "Intelligence",
+
+  "Damage_Dealt_Percent_Bonus#Arcane": "Arcane damage",
+  "Damage_Dealt_Percent_Bonus#Fire": "Fire damage",
+
+  "Movement_Scalar": "Movement speed",
+  "Thorns_Fixed#Physical": "Thorns",
+  "Power_Cooldown_Reduction_Percent_All": "Cooldown reduction"
+}
