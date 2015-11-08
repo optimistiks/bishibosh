@@ -2,8 +2,13 @@ import Parse from 'parse';
 import {
     register as actionRegister,
     signIn as actionSignIn,
-    loadBuilds as actionLoadBuilds
+    loadBuilds as actionLoadBuilds,
+    compareFormChange as actionCompareFormChange
 } from '../action-repository/index';
+
+export const compareFormChange = (name, value) => {
+    return actionCompareFormChange({[name]: value});
+};
 
 export const loadBuilds = () => {
 
@@ -17,8 +22,7 @@ export const loadBuilds = () => {
             dispatch(actionLoadBuilds(response));
 
         } catch (exception) {
-
-            dispatch(actionLoadBuilds([], true));
+            dispatch(actionLoadBuilds(exception, true));
 
         }
 

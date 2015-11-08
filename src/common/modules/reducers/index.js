@@ -2,6 +2,10 @@ import getCurrentUser from '../get-current-user/index';
 
 export const actionError = function (state = {}, action) {
 
+    if (action.payload instanceof Error) {
+        throw action.payload;
+    }
+
     if (action.isError) {
         return action;
     }

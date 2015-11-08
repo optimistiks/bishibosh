@@ -1,0 +1,7 @@
+html, body, #content, .container-paper {
+    height: 100%;
+}
+
+.container-fluid {
+    color: rgb(255, 255, 255);
+}

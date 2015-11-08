@@ -20,7 +20,7 @@ const Routes = (
         <Router>
             <Route path="/" component={App}>
                 <IndexRoute component={PromoPage}/>
-                <Route path="compare" component={ComparePage}/>
+                <Route path="compare/:battleTag/:heroName/:buildId" component={ComparePage}/>
                 <Route component={PublicGateway}>
                     <Route path="register" component={RegistrationPage}/>
                     <Route path="signin" component={LoginPage}/>
