@@ -2,6 +2,8 @@ import '../../styles/styles.css';
 import React from 'react';
 import {connect} from 'react-redux';
 import {compare} from '../../modules/action-creators/index';
+import {Table, TableHeader, TableRow, TableBody, TableHeaderColumn, TableRowColumn} from 'material-ui';
+
 
 class ComparePage extends React.Component {
 
@@ -21,47 +23,70 @@ class ComparePage extends React.Component {
             (recommendation, index) => <li key={index}>{recommendation}</li>
         );
 
-        const heroItems = this.props.slots.map((slot, index) => {
+        let items = null;
 
-            const item = this.props.heroProfileItems[slot];
+        if (this.props.recommendations.length) {
 
-            // on initial load, slots are present (they are always) but there are no hero profile yet
-            if (!item) {
-                return;
-            }
+            items = this.props.slots.map((slot, index) => {
 
-            const iconSrc = `http://media.blizzard.com/d3/icons/items/small/${item.icon}.png`;
-            const tooltipHref = `http://eu.battle.net/d3/en/${item.tooltipParams}`;
+                const heroItem = this.props.heroProfileItems[slot];
+                const buildItems = this.props.buildData.items[slot].map(
+                    (item, index) => <li key={index}>{item.name}</li>
+                );
 
-            return (
-                <div className="row" key={index}>
-                    <div className="col-xs-12">
-                        <h4>{slot}</h4>
-                        <img src={iconSrc}/>
-                        <a href={tooltipHref} data-d3tooltip={item.tooltipParams}>{item.name}</a>
-                    </div>
-                </div>
-            );
+                console.log('buildItem', buildItems);
 
-        });
+                const iconSrc = `http://media.blizzard.com/d3/icons/items/small/${heroItem.icon}.png`;
+                const tooltipHref = `http://eu.battle.net/d3/en/${heroItem.tooltipParams}`;
+
+                return (
+                    <TableRow key={index}>
+                        <TableRowColumn>{slot}</TableRowColumn>
+                        <TableRowColumn>
+                            <img src={iconSrc}/>
+                            <a href={tooltipHref} data-d3tooltip={heroItem.tooltipParams}>{heroItem.name}</a>
+                        </TableRowColumn>
+                        <TableRowColumn>
+                            <ul>
+                                {buildItems}
+                            </ul>
+                        </TableRowColumn>
+                    </TableRow>
+                );
+
+            });
+        }
 
         return (
             <div className="row">
                 <div className="col-xs-12">
-                    <h2>Recommendations</h2>
-                    <ul>
-                        {recommendations}
-                    </ul>
-                </div>
-                <div className="col-xs-12">
-                    <h2>Details</h2>
+                    <div className="row">
+                        <div className="col-xs-12">
+                            <h2>Recommendations</h2>
+                            <ul>
+                                {recommendations}
+                            </ul>
+                        </div>
+                    </div>
                     <div className="row">
                         <div className="col-xs-12 col-lg-6">
-                            <h3>Hero</h3>
-                            {heroItems}
+                            <h2>Item details</h2>
+                            <Table selectable={false}>
+                                <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                                    <TableRow>
+                                        <TableHeaderColumn tooltip="Slot">Slot</TableHeaderColumn>
+                                        <TableHeaderColumn tooltip="You have">You have</TableHeaderColumn>
+                                        <TableHeaderColumn tooltip="Best in slot">Best in slot</TableHeaderColumn>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody displayRowCheckbox={false}>
+                                    {items}
+                                </TableBody>
+                            </Table>
                         </div>
                         <div className="col-xs-12 col-lg-6">
-                            <h3>Build</h3>
+                            <h2>Attribute details</h2>
+
                         </div>
                     </div>
                 </div>

@@ -84,7 +84,7 @@ export const compare = (battleTag, heroName, buildId) => {
                         // if recommended attribute is not present on the item, warn
                         if (!itemData.attributesRaw[attribute.id]) {
 
-                            recommendations.push(`You need attribute ${attributes[attribute.id]} for your ${slot} slot. Priority ${attribute.priority}`);
+                            recommendations.push(`You need attribute ${attributes[attribute.id]} (priority ${attribute.priority}) for slot ${slot}.`);
 
                         }
 

@@ -5,7 +5,7 @@ import '../../styles/styles.css';
 import React from 'react';
 import {connect} from 'react-redux';
 import {Paper} from 'material-ui';
-import DarkTheme from 'material-ui/lib/styles/raw-themes/dark-raw-theme';
+import Theme from '../../modules/ui-theme/index';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
 
     getChildContext() {
         return {
-            muiTheme: ThemeManager.getMuiTheme(DarkTheme)
+            muiTheme: ThemeManager.getMuiTheme(Theme)
         };
     }
 

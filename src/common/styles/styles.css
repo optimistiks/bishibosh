@@ -4,9 +4,5 @@ html, body, #content {
 
 .container-paper {
     min-height: 100%;
-}
-
-
-.container-fluid {
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 1)
 }
