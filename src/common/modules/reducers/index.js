@@ -1,4 +1,5 @@
 import getCurrentUser from '../get-current-user/index';
+import slotsList from '../../../../slots.json';
 
 export const actionError = function (state = {}, action) {
 
@@ -29,4 +30,8 @@ export const currentUser = function (state = getCurrentUser(), action) {
 
     }
 
+};
+
+export const slots = function (state = slotsList) {
+    return state;
 };

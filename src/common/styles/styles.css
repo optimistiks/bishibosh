@@ -1,6 +1,11 @@
-html, body, #content, .container-paper {
+html, body, #content {
     height: 100%;
 }
+
+.container-paper {
+    min-height: 100%;
+}
+
 
 .container-fluid {
     color: rgb(255, 255, 255);

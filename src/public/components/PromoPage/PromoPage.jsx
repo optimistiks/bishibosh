@@ -37,8 +37,6 @@ class PromoPage extends React.Component {
 
                 <div className="col-xs-12">
 
-                    <h1>Welcome to Bishibosh</h1>
-
                     <p>
                         Bishibosh is a build tracker for Diablo III.
                     </p>

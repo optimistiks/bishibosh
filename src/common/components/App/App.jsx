@@ -29,6 +29,7 @@ class App extends React.Component {
         return (
             <Paper zDepth={0} rounded={false} className="container-paper">
                 <div className="container-fluid">
+                    <h1>Bishibosh</h1>
                     {this.props.actionError.type ? <p>Error in
                         action {this.props.actionError.type} {JSON.stringify(this.props.actionError)}</p> : null}
                     {this.props.children}

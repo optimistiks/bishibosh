@@ -1,7 +1,10 @@
 import Parse from '../../../common/modules/parse-client/index';
 import d3Api from '../../../common/modules/d3-api-client/index';
 import {
-    compare as actionCompare
+    compare as actionCompare,
+    buildData as actionBuildData,
+    heroProfileItems as actionHeroProfileItems,
+    recommendations as actionRecommendations
 } from '../action-repository/index';
 import slots from '../../../../slots.json';
 import attributes from '../../../../attributes.json';
@@ -18,6 +21,8 @@ export const compare = (battleTag, heroName, buildId) => {
     return async function (dispatch) {
 
         try {
+
+            const recommendations = [];
 
             // create a query to load build by it's id from parse
             const buildQuery = new Parse.Query('Build');
@@ -42,6 +47,9 @@ export const compare = (battleTag, heroName, buildId) => {
                     d3Api.getHeroProfile(battleTag, heroDataFromCareerProfile.id)
                 ]);
 
+                dispatch(actionBuildData(buildData));
+                dispatch(actionHeroProfileItems(heroProfile.items));
+
                 // we will load data for each item on hero, and we store promises here
                 const itemsDataPromises = [];
 
@@ -58,10 +66,7 @@ export const compare = (battleTag, heroName, buildId) => {
 
                     // compare bis item and item on hero, warn if bis item is not found
                     if (itemOnHeroNormalizedName !== itemBestInSlotNormalizedName) {
-                        console.warn(`It looks like best in slot is missing in your ${slot} slot`);
-                        console.warn(`Best in slot is ${itemBestInSlotNormalizedName} but you wear ${itemOnHeroNormalizedName}`);
-                    } else {
-                        console.info(`It looks like you wear best in slot in your ${slot} slot`);
+                        recommendations.push(`You need to find ${itemBestInSlot.name} for your ${slot} slot.`);
                     }
                 });
 
@@ -79,11 +84,7 @@ export const compare = (battleTag, heroName, buildId) => {
                         // if recommended attribute is not present on the item, warn
                         if (!itemData.attributesRaw[attribute.id]) {
 
-                            console.warn('Attribute', attributes[attribute.id], 'is missing from slot', slot, 'and its priority is', attribute.priority);
-
-                        } else {
-
-                            console.log('Attribute', attributes[attribute.id], 'is present in slot', slot, 'and its priority is', attribute.priority);
+                            recommendations.push(`You need attribute ${attributes[attribute.id]} for your ${slot} slot. Priority ${attribute.priority}`);
 
                         }
 
@@ -91,13 +92,14 @@ export const compare = (battleTag, heroName, buildId) => {
 
                 });
 
+                dispatch(actionRecommendations(recommendations));
+
             } else {
-                console.log('either hero or build were not found');
+                dispatch(actionCompare('Either hero or build were not found.', true));
             }
 
 
         } catch (exception) {
-            console.log('bad happened', exception);
             dispatch(actionCompare(exception, true));
         }
     };
